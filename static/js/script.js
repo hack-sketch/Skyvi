@@ -27,42 +27,41 @@ const fetchdata = () => {
 
       // GPT KA CODE
       // Variables Declaration
+     
       const botn = document.querySelector(".bot-submit");
-      
-      // The async code for sending data to the chatbot and then openai
+      let botrespo = document.querySelector(".bot-respo");
       
       let botfetch = () => {
-        const fetchurl = "/bot";
-        
-        let userPrompt =  document.querySelector(".chatbot-input").value || "Give information on " + location;
-        let botrespo = document.querySelector(".bot-respo");
+        const userPrompt = document.querySelector(".chatbot-input").value
+        console.log("User Prompt: ", userPrompt)
+          const fetchurl = "/bot";
+  
+          // Example data to be sent in the POST request
+          const postData = {
+              prompt: userPrompt,
+          };
+  
+          fetch(fetchurl, {
+              method: "POST",
+              headers: {
+                  "Content-Type": "application/json", // Set the content type to JSON
+              },
+              body: JSON.stringify(postData), // Convert the data to JSON format
+          })
+          .then(respo => respo.json())
+          .then((data2) => {
+              console.log(userPrompt);
+              console.log("API Response: ", data2);
+              botrespo.textContent = "Bot: " + data2.response;
+          })
+          .catch((error) => {
+              console.error("Error:", error);
+          });
+      }
 
-      //  Data to be sent to the api
-        const postData = {
-            prompt: userPrompt,
-        };
-
-        fetch(fetchurl, {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json", // Set the content type to JSON
-            },
-            body: JSON.stringify(postData), // Convert the data to JSON format
-        })
-        .then(respo => respo.json())
-        .then((data) => {
-            console.log(data);
-            botrespo.textContent = "Bot: " + data.response;
-            console.log(userPrompt)
-        })
-        .catch((error) => {
-            console.error("Error:", error);
-        });
-    }
-
-
-    botfetch();
-    botn.addEventListener("click", botfetch);
+    
+  
+      botn.addEventListener("click", botfetch);
 
 
 

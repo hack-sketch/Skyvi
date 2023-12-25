@@ -237,6 +237,9 @@ hr{
 
 .bot-respo{
     color: whitesmoke;
+    min-height: 60vh;
+    max-height: 60vh;
+    overflow: auto;
 }
 
 
