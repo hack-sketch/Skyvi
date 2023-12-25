@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://kit.fontawesome.com/394111977c.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}"> <!--call python function "url_for" -->
+    <script src="/static/js/script.js" defer></script>
+</head>
+<body>
+    <div class="bg"></div>
+    <header>
+        <div class="search-box"><input type="text" id="search" class="search" maxlength="50"><i class="fa-solid fa-magnifying-glass search-ico"></i></div>   
+        <nav>
+            <ul>
+                <li><a href="">Home</a></li>
+                <li><a href="">Docs</a></li>
+                <li><a href="">Contribute</a></li>
+                <li><a href="">Contact Us</a></li>
+            </ul>
+            <button class="auth"><a href="/register">LogOut</a></button>
+        </nav>
+    </header>
+    <main>
+        
+        <section class="left">
+            <div class="temp-info">
+                <h1 class="temp-c"></h1>
+                <div class="loc-time">
+                    <h2 class="loc"></h2>
+                    <span class="time"> </span> <span class="country"> </span>
+                </div>
+                <div class="ico-box">
+                    <div class="ico"><i class="fa-solid fa-cloud-rain"></i></div>
+                    <span class="condition"></span>
+                </div>
+            </div>
+        </section>
+        <section class="right">
+            <div class="weather-box">
+                <div class="suggested-places">
+                   <h3>Suggested Places</h3>
+              
+                    <div>New Delhi</div>
+                    <div>Mumbai</div>
+                    <div>Kolkata</div>
+                    <div>Goa</div>
+                  
+                </div>
+<hr>
+                <div class="weather-info">
+                    <h3>Weather Info</h3>
+                    <div class="flex-info">
+                        <div>Wind Speed</div>
+                        <div class="wind-speed"></div>
+                    </div>
+                    <div class="flex-info">
+                        <div>Wind Direction</div>
+                        <div class="wind-direction"></div>
+                    </div>
+                    <div class="flex-info">
+                        <div>Humidity</div>
+                        <div class="humidity"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+</body>
+</html>
